@@ -1,3 +1,4 @@
+import NoTagSample.User
 import shapeless.tag
 import shapeless.tag.@@
 
@@ -22,7 +23,8 @@ object TagSample1 {
   case class UserWithTags(name: String, email: Email, address: String, country: Country)
 
   //UserWithTags("ignacio@rocks.com", "Ignacio", "Spain", "Avda Alfonso XIII") //do not compile
-  UserWithTags("Ignacio", tag[EmailT]("ignacio@rocks.com"), "Avda Alfonso XIII", tag[CountryT]("Spain")) //compile
+  UserWithTags("Ignacio", tag[EmailT][String]("ignacio@rocks.com"), "Avda Alfonso XIII", tag[CountryT][String]("Spain")) //compile
+  User("Ignacio", tag[EmailT][String]("ignacio@rocks.com"), "Avda Alfonso XIII", tag[CountryT][String]("Spain")) //compile
 
 }
 
@@ -44,5 +46,6 @@ object TagSample2 {
   case class UserWithTagsOps(name: String, email: Email, address: String, country: Country)
 
   UserWithTagsOps("Ignacio", Email("ignacio@rocks.com"), "Avda Alfonso XIII", Country("Spain"))
+  User("Ignacio", Email("ignacio@rocks.com"), "Avda Alfonso XIII", Country("Spain"))
 
 }
