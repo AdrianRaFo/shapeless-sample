@@ -1,15 +1,14 @@
-import NoTagSample.User
 import shapeless.tag
 import shapeless.tag.@@
 
-object NoTagSample {
+trait TagSample {
   case class User(name: String, email: String, address: String, country: String)
 
   User("Ignacio", "ignacio@rocks.com", "Avda Alfonso XIII", "Spain") //compile
   User("ignacio@rocks.com", "Ignacio", "Spain", "Avda Alfonso XIII") //compile
 }
 
-object TagSample1 {
+object TagSample1 extends TagSample {
 
   type Email   = String @@ EmailT
   type Country = String @@ CountryT
@@ -24,11 +23,11 @@ object TagSample1 {
 
   //UserWithTags("ignacio@rocks.com", "Ignacio", "Spain", "Avda Alfonso XIII") //do not compile
   UserWithTags("Ignacio", tag[EmailT][String]("ignacio@rocks.com"), "Avda Alfonso XIII", tag[CountryT][String]("Spain")) //compile
-  User("Ignacio", tag[EmailT][String]("ignacio@rocks.com"), "Avda Alfonso XIII", tag[CountryT][String]("Spain")) //compile
+  User("Ignacio", tag[EmailT][String]("ignacio@rocks.com"), "Avda Alfonso XIII", tag[CountryT][String]("Spain"))         //compile
 
 }
 
-object TagSample2 {
+object TagSample2 extends TagSample {
 
   trait TaggedTypeOps[T] {
     def apply(t: T): T @@ Tag = tag[Tag][T](t)
