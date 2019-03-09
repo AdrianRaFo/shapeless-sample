@@ -12,8 +12,7 @@ object RecordSample {
       HNil
 
   //Get values
-  book("author")
-  //Benjamin Pierce
+  book("author") //Benjamin Pierce
 
   //Add values
   book + ("inPrint" ->> true)
