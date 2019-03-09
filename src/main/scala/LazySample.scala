@@ -1,5 +1,5 @@
 import shapeless.Lazy
-object LazySample extends App {
+object LazySample {
 
   case class Commit(name: String, sha: String)
   case class Branch(subBranch: Option[Branch], commits: List[Commit])
