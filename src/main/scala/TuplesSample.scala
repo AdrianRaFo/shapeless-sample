@@ -1,4 +1,4 @@
-object TuplesSample extends App{
+object TuplesSample extends App {
   //shapeless allows standard Scala tuples to be manipulated in exactly the same ways as HLists
 
   import shapeless.syntax.std.tuple._

@@ -41,7 +41,8 @@ object HMapSample extends HSample {
   implicit val adminToLabel      = new BiUserMap[Admin, String]
   implicit val normalUserToLabel = new BiUserMap[NormalUser, String]
 
-  val hm: HMap[BiUserMap] = HMap[BiUserMap](1 -> admin, admin -> "coolGuy", 2 -> normalUser, normalUser -> "theOtherGuy")
+  val hm: HMap[BiUserMap] =
+    HMap[BiUserMap](1 -> admin, admin -> "coolGuy", 2 -> normalUser, normalUser -> "theOtherGuy")
 
   val adminFromIndex: Option[Admin] = hm.get[Int, Admin](1)
 

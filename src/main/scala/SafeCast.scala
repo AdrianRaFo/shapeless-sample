@@ -7,7 +7,7 @@ object SafeCast {
   l.cast[List[Vector[String]]]
   //Some(List(Vector(foo, bar, baz), Vector(wibble)))
 
-   l.cast[List[Vector[Int]]]
-   //None
+  l.cast[List[Vector[Int]]]
+  //None
 
 }

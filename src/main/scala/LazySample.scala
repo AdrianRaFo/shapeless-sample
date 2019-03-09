@@ -55,6 +55,6 @@ object LazySample extends App {
   import withLazy._
 
   println(show(develop)) //Branch(subBranch = "", commits = (Commit(name = a, sha = 1a2b), Commit(name = b, sha = 3c4d)))
-  println(show(master)) //Branch(subBranch = Branch(subBranch = "", commits = (Commit(name = a, sha = 1a2b), Commit(name = b, sha = 3c4d))), commits = ())
+  println(show(master))  //Branch(subBranch = Branch(subBranch = "", commits = (Commit(name = a, sha = 1a2b), Commit(name = b, sha = 3c4d))), commits = ())
 
 }
