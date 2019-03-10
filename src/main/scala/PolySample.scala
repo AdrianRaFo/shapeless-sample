@@ -1,8 +1,15 @@
 import shapeless.Poly1
+import shapeless.PolyDefns.~>
 
 import scala.util.Try
 
 object PolySample {
+
+  object choose extends (Set ~> Option) {
+    def apply[T](s : Set[T]): Option[T] = s.headOption
+  }
+
+  choose(Set(1, 2, 3)) //Some(1)
 
   object readDouble extends Poly1 {
     implicit def caseInt    = at[Int](_.toDouble)
