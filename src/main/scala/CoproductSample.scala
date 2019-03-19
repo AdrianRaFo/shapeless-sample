@@ -8,7 +8,7 @@ object CoproductSample {
 
   //Std
 
-  sealed trait Developer
+  sealed trait InheritanceDeveloper
 
   type optDeveloper = (Option[Lead], Option[Senior], Option[Junior])
 
