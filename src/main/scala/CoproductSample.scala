@@ -6,6 +6,16 @@ object CoproductSample {
   case class Senior(name: String, mastery: List[String], years: Int)
   case class Junior(name: String, daysWithoutBreakMaster: Int)
 
+  //Std
+
+  sealed trait Developer
+
+  type optDeveloper = (Option[Lead], Option[Senior], Option[Junior])
+
+  type eitherDeveloper = Either[Lead, Either[Senior, Junior]]
+
+  //Shapeless
+
   type Developer = Lead :+: Senior :+: Junior :+: CNil
 
   val lead   = Lead("Juan Pedro", "who is worth it", "Everything")
